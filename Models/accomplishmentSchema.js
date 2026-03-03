@@ -18,6 +18,8 @@ const accomplishmentSchema = new mongoose.Schema({
     notes: {
         type: [String]
     }
-})
+},
+    { timestamps: true }
+)
 
 export default mongoose.model('Accomplishment', accomplishmentSchema);
