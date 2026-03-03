@@ -36,4 +36,16 @@ const showOneUser = (async (req, res) => {
     res.json(oneUser);
 })
 
-export default { showAllUsers, createAUser, updateAUser, deleteAUser, showOneUser }
+const getAllOfAUsersAccomplishments = async (req, res, next) => {
+    let id = req.params.id;
+
+    let foundUser = await User.find((user) => user.id == id);
+
+    if (!foundUser) return res.status(404).json({ error: "User NOT FOUND !" })
+
+    let userAccomplishment = await Accomplishment.filter((accomplishment) => accomplishment.userId == id);
+
+    res.json({[`All of ${foundUser.firstName} ${foundUser.lastName}'s Accomplishments`]: userAccomplishment});
+}
+
+export default { showAllUsers, createAUser, updateAUser, deleteAUser, showOneUser, getAllOfAUsersAccomplishments }

@@ -1,5 +1,7 @@
 import express from "express";
 import userCTRL from "../Controllers/userControllers.js";
+import User from "../Models/userSchema.js";
+import Accomplishment from "../Models/accomplishmentSchema.js";
 
 const router = express.Router();
 
@@ -23,5 +25,11 @@ router
 // @route: GET /api/user/:id
 // @desc: Show One User By ID Route
 .get(userCTRL.showOneUser)
+
+router
+.route("/:id/accomplishments")
+// @route: GET /api/user/:id/accompllishment
+// @desc: Get All Of A User's Accomplishments
+.get(userCTRL.getAllOfAUsersAccomplishments)
 
 export default router;
