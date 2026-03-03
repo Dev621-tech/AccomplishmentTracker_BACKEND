@@ -1,43 +1,27 @@
-import express from "express"
-import User from "../Models/userSchema.js";
+import express from "express";
+import userCTRL from "../Controllers/userControllers.js";
 
 const router = express.Router();
 
 router
 .route("/")
-.get(async (req, res) => {
-    let allUsers = await User.find({});
-
-    res.json(allUsers);
-})
-.post(async (req, res) => {
-    let newUser = await User.create(req.body);
-
-    res.json(newUser);
-})
+// @route: GET /api/user
+// @desc: Show All Users Route
+.get(userCTRL.showAllUsers)
+// @route: POST /api/user
+// @desc: Create A New User Route
+.post(userCTRL.createAUser)
 
 router
 .route("/:id")
-.put(async (req, res) => {
-    let updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    
-    if (!updatedUser) return res.status(404).json({ error: "User NOT FOUND !"  });
-
-    res.json(updatedUser);
-})
-.delete(async (req, res) => {
-    let deletedUser = await User.findByIdAndDelete(req.params.id);
-
-    if (!deletedUser) return res.status(404).json({ error: "User NOT FOUND !"});
-
-    res.json(deletedUser);
-})
-.get(async (req, res) => {
-    let oneUser = await User.findById(req.params.id);
-
-    if (!oneUser) return res.status(404).json({ error: "User NOT FOUND !"});
-
-    res.json(oneUser);
-})
+// @route: PUT /api/user/:id
+// @desc: Update A User Route
+.put(userCTRL.updateAUser)
+// @route: DELETE /api/user/:id
+// @desc: Delete A User Route
+.delete(userCTRL.deleteAUser)
+// @route: GET /api/user/:id
+// @desc: Show One User By ID Route
+.get(userCTRL.showOneUser)
 
 export default router;
