@@ -6,6 +6,7 @@ import { logReq, globalErr } from "./Middleware/middleware.js"
 import connectDatabase from "./DB/conn.js";
 import userRoutes from "./Routes/userRoutes.js";
 import accomplishmentRoutes from "./Routes/accomplishmentRoutes.js";
+import postRoutes from "./Routes/postRoutes.js";
 
 // Setups
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(logReq);
 // Routes
 app.use('/api/user', userRoutes)
 app.use('/api/accomplishment', accomplishmentRoutes)
+app.use('/api/post', postRoutes)
 
 // Global Error Handling Middleware
 app.use(globalErr);
