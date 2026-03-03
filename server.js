@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { logReq, globalErr } from "./Middleware/middleware.js"
 import connectDatabase from "./DB/conn.js";
+import userRoutes from "./Routes/userRoutes.js";
 
 // Setups
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(logReq);
 
 // Routes
+app.use('/api/user', userRoutes)
 
 // Global Error Handling Middleware
 app.use(globalErr);
