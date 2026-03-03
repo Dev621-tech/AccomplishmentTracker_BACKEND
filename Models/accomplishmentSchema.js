@@ -2,11 +2,12 @@ import mongoose from "mongoose";
 
 const accomplishmentSchema = new mongoose.Schema({
     userId: {
-        type: Number,
-        required: true,
-        message: "No Value Submitted At userId"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     },
-    accompplishment: {
+    
+    accomplishment: {
         type: String,
         required: true,
         message: "No Value Submitted At Accomplishment"
@@ -21,5 +22,7 @@ const accomplishmentSchema = new mongoose.Schema({
 },
     { timestamps: true }
 )
+
+accomplishmentSchema.index({ userId: 1 });
 
 export default mongoose.model('Accomplishment', accomplishmentSchema);

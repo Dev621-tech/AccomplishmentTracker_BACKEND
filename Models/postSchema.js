@@ -11,6 +11,8 @@ const postSchema = new mongoose.Schema({
         required: true,
         message: "No Value Submitted At Post"
     }
-});
+},
+    { timestamps: true }
+);
 
 export default mongoose.model('Post', postSchema);

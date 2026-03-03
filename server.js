@@ -5,6 +5,7 @@ import cors from "cors";
 import { logReq, globalErr } from "./Middleware/middleware.js"
 import connectDatabase from "./DB/conn.js";
 import userRoutes from "./Routes/userRoutes.js";
+import accomplishmentRoutes from "./Routes/accomplishmentRoutes.js";
 
 // Setups
 dotenv.config();
@@ -20,6 +21,7 @@ app.use(logReq);
 
 // Routes
 app.use('/api/user', userRoutes)
+app.use('/api/accomplishment', accomplishmentRoutes)
 
 // Global Error Handling Middleware
 app.use(globalErr);
