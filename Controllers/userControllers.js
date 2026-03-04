@@ -1,4 +1,5 @@
 import User from "../Models/userSchema.js";
+import Accomplishment from "../Models/accomplishmentSchema.js";
 
 const showAllUsers = (async (req, res) => {
     let allUsers = await User.find({});
@@ -39,11 +40,11 @@ const showOneUser = (async (req, res) => {
 const getAllOfAUsersAccomplishments = async (req, res, next) => {
     let id = req.params.id;
 
-    let foundUser = await User.find((user) => user.id == id);
+    let foundUser = await User.findById(id)
 
     if (!foundUser) return res.status(404).json({ error: "User NOT FOUND !" })
 
-    let userAccomplishment = await Accomplishment.filter((accomplishment) => accomplishment.userId == id);
+    let userAccomplishment = await Accomplishment.find({ userId: id })
 
     res.json({[`All of ${foundUser.firstName} ${foundUser.lastName}'s Accomplishments`]: userAccomplishment});
 }
