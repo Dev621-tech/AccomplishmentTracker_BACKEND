@@ -15,7 +15,9 @@ GET | /api/user/:id | Index of A Single User (By ID) |
 PUT | /api/user/:id | Update A Single User |
 DELETE | /api/user/:id| Delete A Single User |
 GET | /api/user/:id/accomplishments| Show All Of A User's Accomplishments |
+POST | /api/user/:id/accomplishments| User Create An Accomplishment |
 Get | /api/user/:id/posts| Show All Of A User's Posts |
+POST | /api/user/:id/posts| User Create A Post |
 GET | /api/accomplishment | Index of All Accomplishment |
 POST | /api/accomplishment | Create An Accomplishment |
 GET | /api/accomplishment/:id | Index of A Single Accomplishment (By ID) |
