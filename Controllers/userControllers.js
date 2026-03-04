@@ -1,5 +1,6 @@
 import User from "../Models/userSchema.js";
 import Accomplishment from "../Models/accomplishmentSchema.js";
+import Post from "../Models/postSchema.js";
 
 const showAllUsers = (async (req, res) => {
     let allUsers = await User.find({});
@@ -49,4 +50,15 @@ const getAllOfAUsersAccomplishments = async (req, res, next) => {
     res.json({[`All of ${foundUser.firstName} ${foundUser.lastName}'s Accomplishments`]: userAccomplishment});
 }
 
-export default { showAllUsers, createAUser, updateAUser, deleteAUser, showOneUser, getAllOfAUsersAccomplishments }
+const getAllOfAUsersPosts = async (req, res, next) => {
+    let id =req.params.id;
+
+    let foundUser = await User.findById(id)
+
+    if (!foundUser) return res.status(404).json({ error: "User NOT FOUND !" })
+
+    let userPost = await Post.find({ userId: id })
+
+    res.json({[`All of ${foundUser.firstName} ${foundUser.lastName}'s Posts`]: userPost});
+}
+export default { showAllUsers, createAUser, updateAUser, deleteAUser, showOneUser, getAllOfAUsersAccomplishments, getAllOfAUsersPosts }

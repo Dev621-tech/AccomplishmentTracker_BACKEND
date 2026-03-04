@@ -28,8 +28,14 @@ router
 
 router
 .route("/:id/accomplishments")
-// @route: GET /api/user/:id/accompllishment
+// @route: GET /api/user/:id/accompllishments
 // @desc: Get All Of A User's Accomplishments
 .get(userCTRL.getAllOfAUsersAccomplishments)
+
+router
+.route("/:id/posts")
+// @route: GET /api/user/:id/posts
+// @desc: Get All Of A User's Posts
+.get(userCTRL.getAllOfAUsersPosts)
 
 export default router;
