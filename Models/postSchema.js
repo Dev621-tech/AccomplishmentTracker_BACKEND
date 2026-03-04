@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema({
     userId: {
-        type: Number,
-        required: true,
-        message: "No Value Submitted At userId"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     },
     post: {
         type: String,
