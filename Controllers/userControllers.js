@@ -47,7 +47,7 @@ const getAllOfAUsersAccomplishments = async (req, res, next) => {
 
     let userAccomplishment = await Accomplishment.find({ userId: id })
 
-    res.json({ [`All of ${foundUser.firstName} ${foundUser.lastName}'s Accomplishments`]: userAccomplishment });
+    res.json(userAccomplishment);
 }
 
 const getAllOfAUsersPosts = async (req, res, next) => {
@@ -113,4 +113,19 @@ const createANewPostByUser = async (req, res, next) => {
 
 }
 
-export default { showAllUsers, createAUser, updateAUser, deleteAUser, showOneUser, getAllOfAUsersAccomplishments, getAllOfAUsersPosts, createANewAccomplishmentByUser, createANewPostByUser }
+const loginAUser = async (req, res) => {
+    console.log("Login attempt:", req.body)
+
+    const { username, password } = req.body;
+
+    const user = await User.findOne({ username });
+
+    if (!user) return res.status(404).json({ error: "User NOT FOUND" })
+    
+    if (user.password !== password) return res.status(404).json({ error: "User NOT FOUND" })
+    
+    res.json({ success: true, homepage: `/user/${user._id}/accomplishments` })
+
+}
+
+export default { showAllUsers, createAUser, updateAUser, deleteAUser, showOneUser, getAllOfAUsersAccomplishments, getAllOfAUsersPosts, createANewAccomplishmentByUser, createANewPostByUser, loginAUser }

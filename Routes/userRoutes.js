@@ -44,4 +44,10 @@ router
 // @desc: User Create Post Route
 .post(userCTRL.createANewPostByUser)
 
+router
+.route("/login")
+// @route: POST /api/user/login
+// @desc: Login User Route
+.post(userCTRL.loginAUser)
+
 export default router;
