@@ -124,7 +124,7 @@ const loginAUser = async (req, res) => {
     
     if (user.password !== password) return res.status(404).json({ error: "User NOT FOUND" })
     
-    res.json({ success: true, homepage: `/user/${user._id}/accomplishments` })
+    res.json({ success: true, homepage: `/user/${user._id}/accomplishments`, _id: user._id  })
 
 }
 
