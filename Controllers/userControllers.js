@@ -69,7 +69,7 @@ const createANewAccomplishmentByUser = async (req, res, next) => {
         const user = await User.findById(userId);
         if (!user) return res.status(404).json({ error: "User NOT FOUND !" });
 
-        const { accomplishment, notes } = req.body;
+        const { accomplishment, notes, completed } = req.body;
 
         if (!accomplishment) {
             return res.status(400).json({ error: "Accomplishment Is Required !" })
@@ -78,7 +78,8 @@ const createANewAccomplishmentByUser = async (req, res, next) => {
         const newAccomplishment = await Accomplishment.create({
             userId,
             accomplishment,
-            notes
+            notes,
+            completed
         });
 
         res.json(newAccomplishment);
