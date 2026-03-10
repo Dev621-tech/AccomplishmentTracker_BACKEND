@@ -57,9 +57,16 @@ const getAllOfAUsersPosts = async (req, res, next) => {
 
     if (!foundUser) return res.status(404).json({ error: "User NOT FOUND !" })
 
-    let userPost = await Post.find({ userId: id })
+    let userPosts = await Post.find({ userId: id }).sort({ createdAt: -1 });
 
-    res.json({ [`All of ${foundUser.firstName} ${foundUser.lastName}'s Posts`]: userPost });
+    res.json({
+        user: {
+            firstName: foundUser.firstName,
+            lastName: foundUser.lastName,
+            username: foundUser.username,
+        },
+        posts: userPosts
+    });
 }
 
 const createANewAccomplishmentByUser = async (req, res, next) => {

@@ -14,13 +14,13 @@ router
 
 router
 .route("/:id")
-// @route: PUT /api/pot/:id
+// @route: PUT /api/post/:id
 // @desc: Update A Post Route
 .put(postCTRL.updateAPost)
-// @route: DELETE /api/pot/:id
+// @route: DELETE /api/post/:id
 // @desc: Delete A Post Route
 .delete(postCTRL.deleteAPost)
-// @route: GET /api/pot/:id
+// @route: GET /api/post/:id
 // @desc: Show One Post Route
 .get(postCTRL.showOnePost)
 
