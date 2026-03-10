@@ -1,6 +1,8 @@
 # Accomplishment Tracker Backend
-
 ## [Accomplishment Tracker FRONTEND](https://github.com/Dev621-tech/AccomplishmentTracker_FRONTEND.git)
+
+## EVERYTHING IS AN ACCOMPLISHMENT
+## Organized Using JIRA
 
 ## Setups For User
 -   `npm run seed` - to seed all three databases
@@ -18,6 +20,7 @@ GET | /api/user/:id/accomplishments| Show All Of A User's Accomplishments |
 POST | /api/user/:id/accomplishments| User Create An Accomplishment |
 GET | /api/user/:id/posts| Show All Of A User's Posts |
 POST | /api/user/:id/posts| User Create A Post |
+POST | /api/user/login| Login A User |
 GET | /api/accomplishment | Index of All Accomplishment |
 POST | /api/accomplishment | Create An Accomplishment |
 GET | /api/accomplishment/:id | Index of A Single Accomplishment (By ID) |
