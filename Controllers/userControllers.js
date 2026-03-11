@@ -23,11 +23,16 @@ const updateAUser = (async (req, res) => {
 })
 
 const deleteAUser = (async (req, res) => {
-    let deletedUser = await User.findByIdAndDelete(req.params.id);
 
-    if (!deletedUser) return res.status(404).json({ error: "User NOT FOUND !" });
-
-    res.json(deletedUser);
+    try {
+        const { id } = req.params;
+        await Accomplishment.deleteMany({ userId: id });
+        await Post.deleteMany({ userId: id });
+        const deletedUser = await User.findByIdAndDelete(id);
+        res.json(deletedUser);
+    } catch (error) {
+        res.status(404).json({ error: "User NOT FOUND !"})
+    }
 })
 
 const showOneUser = (async (req, res) => {
