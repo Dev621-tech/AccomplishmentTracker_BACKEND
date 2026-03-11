@@ -1,13 +1,7 @@
-# Accomplishment Tracker Backend
-## [Accomplishment Tracker FRONTEND](https://github.com/Dev621-tech/AccomplishmentTracker_FRONTEND.git)
+# 🏆 Accomplishment Tracker Backend 🏆
+## [💾 Accomplishment Tracker FRONTEND](https://github.com/Dev621-tech/AccomplishmentTracker_FRONTEND.git)
 
-## EVERYTHING IS AN ACCOMPLISHMENT
-## Organized Using JIRA
-
-## Setups For User
--   `npm run seed` - to seed all three databases
--   `npm run dev` - to run server
-
+## 🌟 EVERYTHING IS AN ACCOMPLISHMENT
 ## API Reference
    VERB 		 | 		  PATH 		 |  	 DESCRIPTION
 ------------ | ------------- | -------------------
@@ -32,7 +26,14 @@ GET | /api/post/:id | Index of A Single Post (By ID) |
 PUT | api/post/:id | Update A Single Post |
 DELETE | /api/post/:id | Delete A Single Post |
 
-### Starter Steps
+
+### [🗂️ Organized Using JIRA](https://www.atlassian.com/software/jira?referer=jira.com)
+
+## ⚙️ Setups For User
+-   `npm run seed` - to seed all three databases
+-   `npm run dev` - to run server
+
+### 🏁 Starter Steps (Building From Stratch)
 -   `touch server.js`
 -   `npm init -y`
 -   `"dev": "nodemon server.js" & "type": "module"`
@@ -41,7 +42,7 @@ DELETE | /api/post/:id | Delete A Single Post |
 -   `node_modules/` inside .gitignore
 -   `.env` inside. .gitignore
 
-### Dependencies
+### 📦 Dependencies
 -   mongoose
 -   express
 -   dotenv
